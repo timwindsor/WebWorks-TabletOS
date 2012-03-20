@@ -16,6 +16,10 @@
 (function () {
 	
 	function Utils(disp) {
+		this.constructor.prototype.blobToString = function(blob, encoding)
+								{ return disp.blobToString(blob, encoding); };
+		this.constructor.prototype.stringToBlob = function(s, encoding)
+								{ return disp.stringToBlob(s, encoding); };		
 	}
 	
 	Utils.prototype.parseURL = function (theUrl) {
@@ -90,5 +94,5 @@
 		return Math.floor(Math.random() * Number.MAX_VALUE);
 	}
 	
-	blackberry.Loader.loadApi("blackberry.utils", Utils);
+	blackberry.Loader.javascriptLoaded("blackberry.utils", Utils);
 }());
